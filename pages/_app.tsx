@@ -5,7 +5,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   if (process.browser) {
     var prevScrollPos = window.pageYOffset
     window.onscroll = function () {
-      var nav = document.getElementById('nav-bar')
+      var nav = document.getElementById('nav-bar')!
 
       var currentScrollPos = window.pageYOffset
 
