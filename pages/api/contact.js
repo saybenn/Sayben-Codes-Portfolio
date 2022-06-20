@@ -1,91 +1,44 @@
-import nodemailer from 'nodemailer'
-import { google } from 'googleapis'
-const OAuth2 = google.auth.OAuth2
+import sendgrid from '@sendgrid/mail'
 
-const createTransporter = async () => {
-  const oauth2Client = new OAuth2(
-    process.env.GOOGLE_CLIENT_ID,
-    process.env.GOOGLE_CLIENT_SECRET,
-    'https://developers.google.com/oauthplayground'
-  )
+sendgrid.setApiKey(process.env.SENDGRID_API_KEY)
 
-  oauth2Client.setCredentials({
-    refresh_token: process.env.GOOGLE_REFRESH_TOKEN,
-  })
-
-  const accessToken = await new Promise((resolve, reject) => {
-    oauth2Client.getAccessToken((err, token) => {
-      if (err) {
-        reject('Failed to get access token')
-      }
-      resolve(token)
-    })
-  })
-
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      type: 'OAuth2',
-      user: process.env.SENDER_EMAIL,
-      pass: process.env.SENDER_PASS,
-      accessToken,
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
-    },
-  })
-
-  return transporter
-}
-
-export default async (req, res) => {
-  const { name, email, message } = req.body
-
-  const sendEmail = async (emailOptions) => {
-    try {
-      let emailTransporter = await createTransporter()
-      await emailTransporter.sendMail(emailOptions)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
+async function sendEmail(req, res) {
   try {
-    await sendEmail({
-      subject: `Contact Form Submission from ${name}`,
-      to: process.env.SENDER_EMAIL,
-      from: process.env.EMAIL_USER,
-      html: `<p><strong>Email: </strong> ${email}</p><br>
-        <p><strong>Message: </strong> ${message}</p><br>
-      `,
+    await sendgrid.send({
+      to: 'saybencodes@gmail.com',
+      from: 'neverastain@gmail.com',
+      subject: `New Form Submission From Sayben Codes`,
+      html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+      <html lang="en">
+      <head>
+        <meta charset="utf-8">
+      
+        <title>The HTML5 Herald</title>
+        <meta name="description" content="The HTML5 Herald">
+        <meta name="author" content="SitePoint">
+      <meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+      
+        <link rel="stylesheet" href="css/styles.css?v=1.0">
+      
+      </head>
+      
+      <body>
+         <div class="img-container" style="display: flex;justify-content: center;align-items: center;border-radius: 5px;overflow: hidden; font-family: 'helvetica', 'ui-sans';">              
+              </div>
+              <div class="container" style="margin-left: 20px;margin-right: 20px;">
+              <h3>You've got mail from ${req.body.name}, their email is:${req.body.email}!</h3>
+              <div style="font-size: 16px;">
+              <p>Message:</p>
+              <p>${req.body.message}</p>
+              <br>
+              </div>
+        </body>
+        </html>`,
     })
-    return res.status(200).json('Message Sent')
   } catch (error) {
-    return res.status(500).json({ error: error.message || error.toString() })
+    return res.status(error.statusCode || 500).json({ error: error.message })
   }
+  return res.status(200).json({ error: '' })
 }
 
-// const transporter = nodemailer.createTransport({
-//   host: 'smtp.gmail.com',
-//   port: 465,
-//   secure: true,
-//   auth: {
-//     user: process.env.EMAIL_USER,
-//     pass: process.env.EMAIL_PASS,
-//   },
-// })
-
-// try {
-//   await transporter.sendMail({
-//     from: email,
-//     to: 'saybencodes@gmail.com',
-//     subject: `Contact form submission from ${name}`,
-// html: `<p>You have a contact form submission</p><br>
-//   <p><strong>Email: </strong> ${email}</p><br>
-//   <p><strong>Message: </strong> ${message}</p><br>
-// `,
-//   })
-// } catch (error) {
-//   return res.status(500).json({ error: error.message || error.toString() })
-// }
-// return res.status(200).json({ error: '' })
+export default sendEmail

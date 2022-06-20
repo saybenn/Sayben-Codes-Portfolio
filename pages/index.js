@@ -34,64 +34,79 @@ const Home = () => {
     )
   }
 
-  const [inputs, setInputs] = useState({
-    name: '',
-    email: '',
-    message: '',
-  })
-  const [form, setForm] = useState({
-    state: '',
-    message: '',
-  })
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
 
-  const handleChange = (e) => {
-    setInputs((prev) => ({
-      ...prev,
-      [e.target.id]: e.target.value,
-    }))
+  const [errors, setErrors] = useState({})
+  const [buttonText, setButtonText] = useState('Send')
+
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+  const [showFailureMessage, setShowFailureMessage] = useState(false)
+
+  const handleValidation = () => {
+    let tempErrors = {}
+    let isValid = true
+
+    if (name.length <= 0) {
+      tempErrors[name] = true
+      isValid = false
+    }
+    if (email.length <= 0) {
+      tempErrors[email] = true
+      isValid = false
+    }
+    if (message.length <= 0) {
+      tempErrors[message] = true
+      isValid = false
+    }
+
+    setErrors({ ...tempErrors })
+    console.log('errors', errors)
+    return isValid
   }
 
-  const onSubmitForm = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
-    if (inputs.name && inputs.email && inputs.message) {
-      setForm({ state: 'loading' })
-      try {
-        const res = await fetch(`api/contact`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(inputs),
-        })
+    let isValidForm = handleValidation()
 
-        const { error } = await res.json()
+    if (isValidForm) {
+      setButtonText('Sending')
 
-        if (error) {
-          setForm({
-            state: 'error',
-            message: error,
-          })
-          return
-        }
+      const res = await fetch('/api/contact', {
+        body: JSON.stringify({
+          email: email,
+          name: name,
+          message: message,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      })
 
-        setForm({
-          state: 'success',
-          message: 'Your message was successfully sent',
-        })
+      const { error } = await res.json()
+      if (error) {
+        console.log(error)
+        setShowSuccessMessage(false)
+        setShowFailureMessage(true)
+        setButtonText('Send')
 
-        setInputs({
-          name: '',
-          email: '',
-          message: '',
-        })
-      } catch (err) {
-        setForm({
-          state: 'error',
-          message: 'Something went wrong',
-        })
+        setName('')
+        setEmail('')
+        setMessage('')
+        return
       }
+      setShowSuccessMessage(true)
+      setShowFailureMessage(false)
+      setButtonText('Send')
+
+      setName('')
+      setEmail('')
+      setMessage('')
     }
+    console.log(name, email, message)
   }
   return (
     <div>
@@ -448,41 +463,51 @@ const Home = () => {
               Send a Message
             </div>
           </FadeInSection>
-          <form onSubmit={(e) => onSubmitForm(e)}>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="Name">Name</label>
             <input
-              id="name"
+              name="name"
               type="text"
-              value={inputs.name}
-              onChange={handleChange}
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value)
+              }}
               placeholder="Name"
-              required
             />
+            {errors?.name && <p>Name cannot be empty.</p>}
+            <label htmlFor="Email">Email</label>
             <input
-              id="email"
+              name="email"
               type="email"
-              value={inputs.email}
-              onChange={handleChange}
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value)
+              }}
               placeholder="Email"
-              required
             />
+            {errors?.email && <p>Email cannot be empty.</p>}
+            <label htmlFor="Message">Message</label>
             <textarea
-              id="message"
+              name="message"
               type="text"
-              value={inputs.message}
-              onChange={handleChange}
+              value={message}
+              onChange={(e) => {
+                setMessage(e.target.value)
+              }}
               placeholder="Enter Your Message"
               rows="5"
-              required
             />
-            <input type="submit" value="Submit" />
-            {form.state === 'loading' ? (
-              <div>Sending....</div>
-            ) : form.state === 'error' ? (
-              <div>{form.message}</div>
-            ) : (
-              form.state === 'success' && <div>Sent successfully</div>
-            )}
-          </form>{' '}
+            {errors?.message && <p>Message body cannot be empty.</p>}
+            <input type="submit" value={buttonText} />
+            <div>
+              {showSuccessMessage && (
+                <p>Thank You! Your message has been delivered.</p>
+              )}
+              {showFailureMessage && (
+                <p>Something went wrong, please try again.</p>
+              )}
+            </div>
+          </form>
         </div>
       </section>
     </div>
