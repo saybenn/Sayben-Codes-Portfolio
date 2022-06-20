@@ -166,7 +166,7 @@ const Home = () => {
                   </p>
                 </div>
                 <div className="about-overlay"></div>
-                <img src="images/IMG_9015.jpg" className="about-pic" />
+                <img src="images/IMG_8968.jpg" className="about-pic" />
               </div>
 
               <p className="z-100 font">
