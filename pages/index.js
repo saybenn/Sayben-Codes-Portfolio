@@ -447,42 +447,42 @@ const Home = () => {
             <div className="font scale-btn relative mx-auto w-1/3 border border-black p-1 text-center text-xl hover:cursor-pointer">
               Send a Message
             </div>
-            <form onSubmit={(e) => onSubmitForm(e)}>
-              <input
-                id="name"
-                type="text"
-                value={inputs.name}
-                onChange={handleChange}
-                placeholder="Name"
-                required
-              />
-              <input
-                id="email"
-                type="email"
-                value={inputs.email}
-                onChange={handleChange}
-                placeholder="Email"
-                required
-              />
-              <textarea
-                id="message"
-                type="text"
-                value={inputs.message}
-                onChange={handleChange}
-                placeholder="Enter Your Message"
-                rows="5"
-                required
-              />
-              <input type="submit" value="Submit" />
-              {form.state === 'loading' ? (
-                <div>Sending....</div>
-              ) : form.state === 'error' ? (
-                <div>{form.message}</div>
-              ) : (
-                form.state === 'success' && <div>Sent successfully</div>
-              )}
-            </form>{' '}
           </FadeInSection>
+          <form onSubmit={(e) => onSubmitForm(e)}>
+            <input
+              id="name"
+              type="text"
+              value={inputs.name}
+              onChange={handleChange}
+              placeholder="Name"
+              required
+            />
+            <input
+              id="email"
+              type="email"
+              value={inputs.email}
+              onChange={handleChange}
+              placeholder="Email"
+              required
+            />
+            <textarea
+              id="message"
+              type="text"
+              value={inputs.message}
+              onChange={handleChange}
+              placeholder="Enter Your Message"
+              rows="5"
+              required
+            />
+            <input type="submit" value="Submit" />
+            {form.state === 'loading' ? (
+              <div>Sending....</div>
+            ) : form.state === 'error' ? (
+              <div>{form.message}</div>
+            ) : (
+              form.state === 'success' && <div>Sent successfully</div>
+            )}
+          </form>{' '}
         </div>
       </section>
     </div>
