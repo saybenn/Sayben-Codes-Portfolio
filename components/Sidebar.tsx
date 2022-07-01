@@ -10,7 +10,7 @@ import {
 
 const Sidebar = () => {
   return (
-    <div className="sidebar bg-royal hidden flex-col items-center justify-start border border-black xl:fixed xl:left-0 xl:flex xl:min-h-screen">
+    <div className="sidebar bg-royal z-30 hidden flex-col items-center justify-start border border-black xl:fixed xl:left-0 xl:flex xl:min-h-screen">
       <Head>
         <link rel="preconnect" href="https://use.typekit.net/zug7ovq.css" />
       </Head>
