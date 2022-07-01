@@ -47,15 +47,27 @@ const Sidebar = () => {
         </Link>
       </div>
       <div className="menu-bot grid h-full flex-1  ">
-        <AiFillGithub className="icon gray-text cursor-pointer" size={'2em'} />
-        <AiOutlineInstagram
-          className="icon gray-text cursor-pointer"
-          size={'2em'}
-        />
-        <AiOutlineLinkedin
-          className="icon gray-text cursor-pointer"
-          size={'2em'}
-        />
+        <a target="_blank" href="https://github.com/saybenn">
+          <AiFillGithub
+            className="icon gray-text cursor-pointer"
+            size={'2em'}
+          />
+        </a>
+        <a target="_blank" href="https://www.instagram.com/saybennnn/">
+          <AiOutlineInstagram
+            className="icon gray-text cursor-pointer"
+            size={'2em'}
+          />
+        </a>
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/sabin-chambers-31b50a232/"
+        >
+          <AiOutlineLinkedin
+            className="icon gray-text cursor-pointer"
+            size={'2em'}
+          />
+        </a>
       </div>
     </div>
   )
