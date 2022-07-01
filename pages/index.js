@@ -198,7 +198,10 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="projects bg-dark flex  w-full flex-col py-40">
+      <section
+        id="work"
+        className="projects bg-dark flex  w-full flex-col py-40"
+      >
         <FadeInSection>
           <div className="lg:custom-container mx-auto w-full">
             <div className="project-top mx-auto w-3/4">
@@ -227,7 +230,7 @@ const Home = () => {
           </div>
         </FadeInSection>
       </section>
-      <section className="deeper  w-full bg-white py-40">
+      <section id="deeper" className="deeper w-full bg-white py-40">
         <FadeInSection>
           <div className="mx-auto h-full w-3/4 ">
             <div className="deeper-top mb-24">
@@ -352,7 +355,7 @@ const Home = () => {
           </div>
         </FadeInSection>
       </section>
-      <section className="services   w-full ">
+      <section id="services" className="services w-full ">
         <div className="lg:flex">
           <div className="lg:mar-left bg-dark  flex-1 py-40 text-white lg:w-7/12 lg:px-20">
             {' '}
