@@ -10,7 +10,6 @@ import { AiFillLayout, AiOutlineFileSearch } from 'react-icons/ai'
 import { BsFillCameraFill, BsFillKeyboardFill } from 'react-icons/bs'
 
 import { IconContext } from 'react-icons'
-import Link from 'next/link'
 import NavBar from '../components/NavBar'
 import Image from 'next/image'
 
@@ -127,7 +126,10 @@ const Home = () => {
         <title>Sayben Codes</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://use.typekit.net/zug7ovq.css" />
-        <meta name="description" content="" />
+        <meta
+          name="description"
+          content="coding, web development, web developer, jacksonville, FL, duval county, web design, SEO, free lancer, website builder, coder, programmer, portfolio"
+        />
       </Head>
       <Sidebar />
       <NavBar />
@@ -561,7 +563,7 @@ const Home = () => {
 
             {errors?.message && <p>Message body cannot be empty.</p>}
             <input
-              className="scale-btn send-btn my-4 w-1/6 cursor-pointer rounded-md p-1"
+              className="scale-btn send-btn my-4 w-1/6 cursor-pointer rounded-md p-1 sm:w-2/5"
               type="submit"
               value={buttonText}
             />
