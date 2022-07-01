@@ -26,11 +26,9 @@ async function sendEmail(req, res) {
          <div class="img-container" style="display: flex;justify-content: center;align-items: center;border-radius: 5px;overflow: hidden; font-family: 'helvetica', 'ui-sans';">              
               </div>
               <div class="container" style="margin-left: 20px;margin-right: 20px;">
-              <h3>You've got mail from ${req.body.name}, their email is: ${req.body.email}!</h3>
-              <div style="font-size: 16px;">
-              <p>Message:</p>
-              <p>${req.body.message}</p>
-              <br>
+              <p>You've got mail from <b>${req.body.name}</b> from <b>${req.body.company}</b></p>
+              <p>Their message to you is:</p><p> ${req.body.message}</p><p>You can get back to them via their email: <b>${req.body.email}</b> or phone number: <b>${req.body.phone}</b></p>
+             
               </div>
         </body>
         </html>`,

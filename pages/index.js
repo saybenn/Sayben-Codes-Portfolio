@@ -35,14 +35,22 @@ const Home = () => {
   }
 
   const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')
+  const [company, setCompany] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [show, setShow] = useState(false)
 
   const [errors, setErrors] = useState({})
   const [buttonText, setButtonText] = useState('Send')
 
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
   const [showFailureMessage, setShowFailureMessage] = useState(false)
+
+  const handleShow = () => {
+    show && setShow(false)
+    !show && setShow(true)
+  }
 
   const handleValidation = () => {
     let tempErrors = {}
@@ -79,6 +87,8 @@ const Home = () => {
           email: email,
           name: name,
           message: message,
+          phone: phone,
+          company: company,
         }),
         headers: {
           'Content-Type': 'application/json',
@@ -96,6 +106,8 @@ const Home = () => {
         setName('')
         setEmail('')
         setMessage('')
+        setPhone('')
+        setCompany('')
         return
       }
       setShowSuccessMessage(true)
@@ -105,8 +117,9 @@ const Home = () => {
       setName('')
       setEmail('')
       setMessage('')
+      setPhone('')
+      setCompany('')
     }
-    console.log(name, email, message)
   }
   return (
     <div>
@@ -114,6 +127,7 @@ const Home = () => {
         <title>Sayben Codes</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://use.typekit.net/zug7ovq.css" />
+        <meta name="description" content="" />
       </Head>
       <Sidebar />
       <NavBar />
@@ -148,25 +162,33 @@ const Home = () => {
                 <div className="about-run overflow-hidden p-2">
                   <h3 className="font mb-3 text-3xl">About Me</h3>
                   <p className="font">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Veritatis ratione laudantium voluptatibus ipsam at tenetur.
-                    Natus minima, placeat temporibus quibusdam labore enim quasi
-                    eum ullam repudiandae commodi iure? Veniam, impedit magnam
-                    odit architecto praesentium necessitatibus.
+                    My name is Sabin Chambers, though some know me as EJ. I'm a
+                    self-taught web developer from Virginia Beach, VA. I
+                    specialize in building eCommerce platforms and polished
+                    sites for small local businesses and young professionals. I
+                    also have a few other talents that help me offer value to my
+                    clients such as photography and writing.
                   </p>
                 </div>
                 <div className="about-run-clone overflow-hidden p-2">
                   <h3 className="font mb-3 text-3xl">About Me</h3>
                   <p className="font">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Veritatis ratione laudantium voluptatibus ipsam at tenetur.
-                    Natus minima, placeat temporibus quibusdam labore enim quasi
-                    eum ullam repudiandae commodi iure? Veniam, impedit magnam
-                    odit architecto praesentium necessitatibus.
+                    My name is Sabin Chambers, though some know me as EJ. I'm a
+                    self-taught web developer from Virginia Beach, VA. I
+                    specialize in building eCommerce platforms and polished
+                    sites for small local businesses and young professionals. I
+                    also have a few other talents that help me offer value to my
+                    clients such as photography and writing.
                   </p>
                 </div>
                 <div className="about-overlay"></div>
-                <img src="images/IMG_8968.jpg" className="about-pic" />
+                <div className="about-pic">
+                  <Image
+                    layout="fill"
+                    alt="saybencodes headshot"
+                    src="images/IMG_8968.jpg"
+                  />
+                </div>
               </div>
 
               <p className="z-100 font">
@@ -223,7 +245,7 @@ const Home = () => {
             </div>
             <div className="deeper-bot mx-auto mt-12 flex w-11/12 grid-cols-2 flex-col items-center justify-center gap-y-12 lg:flex-row">
               <div className="flex w-full flex-col items-center justify-center gap-y-12">
-                <div className="deeper-comp comp-1 block w-11/12">
+                <div className="deeper-comp comp-1 w-11/12">
                   <div className="top">
                     <p className="font text-3xl">Planning</p>
                     <div className="h-0.5 border border-black"></div>
@@ -251,7 +273,7 @@ const Home = () => {
                     </ul>
                   </div>
                 </div>
-                <div className=" deeper-comp comp-2 w-11/12">
+                <div className=" deeper-comp comp-2 w-11/12 lg:min-h-[170px]">
                   <div className="top">
                     <p className="font text-3xl">Design</p>
                     <div className="h-0.5 border border-black"></div>
@@ -269,19 +291,15 @@ const Home = () => {
                     </IconContext.Provider>
                     <ul>
                       <li>
-                        Connect to learn about the vision you have for your
-                        business.
-                      </li>
-                      <li className="mt-3">
-                        Identify the necessary components, funcitonalities, &
-                        scope of the project.
+                        Sitemap and wireframing to craft a prototype visual that
+                        will guide our production.
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
               <div className="flex w-full flex-col items-center justify-center gap-y-12">
-                <div className=" deeper-comp comp-3 w-11/12">
+                <div className=" deeper-comp comp-3 w-11/12 lg:min-h-[170px]">
                   <div className="top">
                     <p className="font text-3xl">Research</p>
                     <div className="h-0.5 border border-black"></div>
@@ -299,17 +317,13 @@ const Home = () => {
                     </IconContext.Provider>
                     <ul>
                       <li>
-                        Connect to learn about the vision you have for your
-                        business.
-                      </li>
-                      <li className="mt-3">
-                        Identify the necessary components, funcitonalities, &
-                        scope of the project.
+                        Investigate your niche, audience, and competitors to
+                        devise effective SEO friendly content.
                       </li>
                     </ul>
                   </div>
                 </div>
-                <div className=" deeper-comp comp-4 w-11/12">
+                <div className=" deeper-comp comp-4 w-11/12 lg:min-h-[170px]">
                   <div className="top">
                     <p className="font text-3xl">Construction</p>
                     <div className="h-0.5 border border-black"></div>
@@ -327,12 +341,8 @@ const Home = () => {
                     </IconContext.Provider>
                     <ul>
                       <li>
-                        Connect to learn about the vision you have for your
-                        business.
-                      </li>
-                      <li className="mt-3">
-                        Identify the necessary components, funcitonalities, &
-                        scope of the project.
+                        Use the appropriate tech stack to bring your specially
+                        designed virutal flagship to life.
                       </li>
                     </ul>
                   </div>
@@ -360,15 +370,10 @@ const Home = () => {
                 </p>
                 <p className="text-2xl font-thin">
                   Ultimately, I want to see the people I work with go on to
-                  flourish. To accomplish that I offer a variety of services
-                  I've fostered proficiency in through study and also as
-                  pastimes for the sake of expression.
+                  flourish. To accomplish that, I offer a variety of services
+                  that I have fostered proficiency in through study and also as
+                  hobbies for the sake of expression.
                 </p>
-                <Link href="/services">
-                  <div className="scale-btn mt-8 w-1/2 border border-white p-1 text-center text-xl font-thin hover:cursor-pointer ">
-                    Services
-                  </div>
-                </Link>
               </div>
             </FadeInSection>
           </div>
@@ -445,7 +450,7 @@ const Home = () => {
       </section>
       <section
         id="contact"
-        className="contact bg-blue-gradient-1 flex  w-full flex-col items-center justify-center py-40"
+        className="contact bg-blue-gradient-1 relative flex  w-full flex-col items-center justify-center py-40"
       >
         <div className="lg:custom-container flex w-3/4 flex-col items-center justify-center">
           <div className="scroll-container w-full">
@@ -459,49 +464,107 @@ const Home = () => {
               discussion concerning code and programming. I'll get back to you
               as soon as I can!
             </p>
-            <div className="font scale-btn relative mx-auto w-1/3 border border-black p-1 text-center text-xl hover:cursor-pointer">
+            <div
+              onClick={handleShow}
+              className="font scale-btn relative mx-auto w-1/3 border border-black p-1 text-center text-xl hover:cursor-pointer"
+            >
               Send a Message
             </div>
           </FadeInSection>
+        </div>
+        <div
+          className={`modal border- absolute rounded-lg border-2 border-slate-900 ${
+            show && 'fade-trans'
+          } bg-blue w-3/4 p-5`}
+        >
+          <div className="flex items-center justify-between">
+            <h2 className="font mb-3 text-3xl">Get In Touch</h2>
+            <h2
+              onClick={handleShow}
+              className="font mb-3 cursor-pointer text-3xl"
+            >
+              x
+            </h2>
+          </div>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="Name">Name</label>
-            <input
-              name="name"
-              type="text"
-              value={name}
-              onChange={(e) => {
-                setName(e.target.value)
-              }}
-              placeholder="Name"
-            />
-            {errors?.name && <p>Name cannot be empty.</p>}
-            <label htmlFor="Email">Email</label>
-            <input
-              name="email"
-              type="email"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value)
-              }}
-              placeholder="Email"
-            />
-            {errors?.email && <p>Email cannot be empty.</p>}
-            <label htmlFor="Message">Message</label>
-            <textarea
-              name="message"
-              type="text"
-              value={message}
-              onChange={(e) => {
-                setMessage(e.target.value)
-              }}
-              placeholder="Enter Your Message"
-              rows="5"
-            />
+            <div className="flex gap-x-3">
+              <input
+                className="w-1/2 rounded-sm p-1 focus:outline-none"
+                name="name"
+                type="text"
+                required
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value)
+                }}
+                disabled={!show}
+                placeholder="Name"
+              />
+              {errors?.name && <p>Name cannot be empty.</p>}
+              <input
+                className="w-1/2 rounded-sm  p-1 focus:outline-none"
+                name="company"
+                type="text"
+                value={company}
+                onChange={(e) => {
+                  setCompany(e.target.value)
+                }}
+                disabled={!show}
+                placeholder="Company"
+              />
+            </div>
+            <div className="my-5 flex gap-x-3">
+              <input
+                className="w-1/2 rounded-sm  p-1 focus:outline-none"
+                name="email"
+                type="email"
+                required
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value)
+                }}
+                disabled={!show}
+                placeholder="Email"
+              />
+              {errors?.email && <p>Email cannot be empty.</p>}
+              <input
+                className="w-1/2 rounded-sm p-1 focus:outline-none"
+                name="phone"
+                type="text"
+                value={phone}
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                onChange={(e) => {
+                  setPhone(e.target.value)
+                }}
+                disabled={!show}
+                placeholder="Phone Number"
+              />
+            </div>
+            <div className="block">
+              <textarea
+                className="w-full rounded-sm p-1 focus:outline-none"
+                name="message"
+                type="text"
+                required
+                value={message}
+                onChange={(e) => {
+                  setMessage(e.target.value)
+                }}
+                disabled={!show}
+                placeholder="Enter Your Message"
+                rows="5"
+              />
+            </div>
+
             {errors?.message && <p>Message body cannot be empty.</p>}
-            <input type="submit" value={buttonText} />
+            <input
+              className="scale-btn send-btn my-4 w-1/6 cursor-pointer rounded-md p-1"
+              type="submit"
+              value={buttonText}
+            />
             <div>
               {showSuccessMessage && (
-                <p>Thank You! Your message has been delivered.</p>
+                <p>Thank You! Your message has been delivered!</p>
               )}
               {showFailureMessage && (
                 <p>Something went wrong, please try again.</p>
@@ -509,6 +572,12 @@ const Home = () => {
             </div>
           </form>
         </div>
+        <div
+          onClick={handleShow}
+          className={`modal-overlay absolute h-full w-full bg-black  ${
+            show && 'fade-trans'
+          }`}
+        ></div>
       </section>
     </div>
   )

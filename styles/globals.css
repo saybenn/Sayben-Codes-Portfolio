@@ -130,6 +130,7 @@
     width: 75%;
     top: 5%;
     left: 5%;
+    object-fit: cover;
     border-radius:6px;
     box-shadow: #666666 1px 2px 8px 0px;
 
@@ -147,7 +148,6 @@
     z-index: 2;
     opacity: 0;
     transition: opacity 300ms ease-in-out;
-    
 }
 
 .about-run-clone {
@@ -205,6 +205,10 @@
 
 .scale-btn {
     transition: all 200ms ease-in-out;
+}
+
+.send-btn {
+    border:#333 solid 2px;
 }
 
 .underline-hover {
@@ -272,6 +276,34 @@
 p.scroll-text:hover {
  animation-play-state: paused;
  cursor: pointer;
+}
+
+.modal {
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+}
+
+.modal.fade-trans {
+    z-index: 50;
+    opacity: 1;
+    top: 25%;
+    right: 12%;
+    position: fixed;
+}
+
+.modal-overlay {
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+}
+
+.modal-overlay.fade-trans {
+    z-index: 40;
+    opacity: .75;
+    top: 0%;
+    right: 0%;
+    position: fixed;
 }
 
 /* for Firefox */
