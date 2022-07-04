@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import Link from 'next/link'
-
 import {
   AiFillGithub,
-  AiOutlineInstagram,
+  AiOutlineCamera,
   AiOutlineLinkedin,
-  AiFillCode,
+  AiOutlineFilePdf,
 } from 'react-icons/ai'
+import { GrDocumentPdf } from 'react-icons/gr'
 
 const Sidebar = () => {
   return (
@@ -46,28 +46,39 @@ const Sidebar = () => {
           </div>
         </Link>
       </div>
-      <div className="menu-bot grid h-full flex-1  ">
-        <a target="_blank" href="https://github.com/saybenn">
-          <AiFillGithub
-            className="icon gray-text cursor-pointer"
-            size={'2em'}
-          />
-        </a>
-        <a target="_blank" href="https://www.instagram.com/saybennnn/">
-          <AiOutlineInstagram
-            className="icon gray-text cursor-pointer"
-            size={'2em'}
-          />
-        </a>
-        <a
-          target="_blank"
-          href="https://www.linkedin.com/in/sabin-chambers-31b50a232/"
-        >
-          <AiOutlineLinkedin
-            className="icon gray-text cursor-pointer"
-            size={'2em'}
-          />
-        </a>
+      <div className="menu-bot flex h-full w-full flex-1 flex-col items-center justify-evenly px-2">
+        <div className="flex w-full justify-around">
+          {' '}
+          <a target="_blank" href="https://github.com/saybenn">
+            <AiFillGithub
+              className="icon gray-text cursor-pointer"
+              size={'2em'}
+            />
+          </a>
+          <a target="_blank" href="/files/Web Dev Resume 2022.pdf">
+            <AiOutlineFilePdf
+              className="icon gray-text cursor-pointer"
+              size={'2em'}
+            />
+          </a>
+        </div>
+        <div className="flex w-full justify-around">
+          <a target="_blank" href="https://www.instagram.com/saybenshoots/">
+            <AiOutlineCamera
+              className="icon gray-text cursor-pointer"
+              size={'2.1em'}
+            />
+          </a>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/sabin-chambers-31b50a232/"
+          >
+            <AiOutlineLinkedin
+              className="icon gray-text cursor-pointer"
+              size={'2em'}
+            />
+          </a>
+        </div>
       </div>
     </div>
   )

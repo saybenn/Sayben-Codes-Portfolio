@@ -128,7 +128,12 @@ font-display:auto;font-style:normal;font-weight:800;font-stretch:normal;
     transition: top 0.3s;
     z-index: 10;
     box-shadow: #212121 0px 0px 8px 0px;
+}
 
+.footer {
+    position: static;
+    bottom: 0;
+    background: linear-gradient(175deg, rgb(230, 251, 255) 20%, rgb(220, 247, 255)61%, rgb(232, 250, 255) 93%);
 }
 
 .custom-container {
@@ -147,6 +152,14 @@ font-display:auto;font-style:normal;font-weight:800;font-stretch:normal;
 
 .icon:hover {
     color:white;
+}
+
+.icon-footer {
+    transition: color .3s ease-in-out;
+}
+
+.icon-footer:hover {
+    color:rgb(94, 107, 111);
 }
 
 .mar-left {

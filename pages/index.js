@@ -11,6 +11,7 @@ import { BsFillCameraFill, BsFillKeyboardFill } from 'react-icons/bs'
 
 import { IconContext } from 'react-icons'
 import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
 import Image from 'next/image'
 
 const Home = () => {
@@ -136,13 +137,13 @@ const Home = () => {
       <section id="home" className="landing  ">
         <div className="mx-auto  w-full lg:flex xl:pl-20">
           {' '}
-          <div className="bg-dark h- xl:mar-left flex flex-col items-start justify-center px-20 pt-20 pb-40 lg:w-6/12">
+          <article className="bg-dark h- xl:mar-left flex flex-col items-start justify-center px-20 pt-20 pb-40 lg:w-6/12">
             <Image
               className="left-0"
               height={350}
               width={350}
               src="/images/Component 2 – 2.svg"
-              alt="sayben codes logo"
+              alt="saybencodes logo"
             />
             <p className="mb-20 text-3xl font-thin text-white">
               My passion is bringing business ideas to life. Is yours next?
@@ -153,12 +154,12 @@ const Home = () => {
             >
               Lets Connect
             </a>
-          </div>
+          </article>
           <div
             id="about"
             className="bg-blue-gradient-2 flex flex-col items-center justify-center px-20 pt-20 pb-40 lg:w-6/12"
           >
-            <div className="mx-auto flex w-11/12 flex-col justify-center lg:w-3/4">
+            <article className="mx-auto flex w-11/12 flex-col justify-center lg:w-3/4">
               <p className="font-thick text-right text-2xl">Sabin Chambers</p>
               <div className="about-me max-w-lg">
                 <div className="about-run overflow-hidden p-2">
@@ -196,7 +197,7 @@ const Home = () => {
               <p className="z-100 font">
                 Web Developer Based In Jacksonville FL
               </p>
-            </div>
+            </article>
           </div>
         </div>
       </section>
@@ -234,7 +235,7 @@ const Home = () => {
       </section>
       <section id="deeper" className="deeper w-full bg-white py-40">
         <FadeInSection>
-          <div className="mx-auto h-full w-3/4 ">
+          <article className="mx-auto h-full w-3/4 ">
             <div className="deeper-top mb-24">
               <p className="font  text-6xl text-black">
                 It's deeper than just building a website.
@@ -347,19 +348,19 @@ const Home = () => {
                     <ul>
                       <li>
                         Use the appropriate tech stack to bring your specially
-                        designed virutal flagship to life.
+                        designed virtual flagship to life.
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </article>
         </FadeInSection>
       </section>
       <section id="services" className="services w-full ">
         <div className="lg:flex">
-          <div className="lg:mar-left bg-dark  flex-1 py-40 text-white lg:w-7/12 lg:px-20">
+          <article className="lg:mar-left bg-dark  flex-1 py-40 text-white lg:w-7/12 lg:px-20">
             {' '}
             <FadeInSection>
               <div className="mx-auto w-3/4">
@@ -381,7 +382,7 @@ const Home = () => {
                 </p>
               </div>
             </FadeInSection>
-          </div>
+          </article>
           <div className="bg-blue-gradient-3 flex flex-col items-center justify-center py-40 px-2 text-black lg:w-5/12 lg:px-10">
             <div className="w-10/12">
               <div className="shadow-light relative block w-full rounded-md p-4 ">
@@ -480,7 +481,7 @@ const Home = () => {
         <div
           className={`modal border- absolute rounded-lg border-2 border-slate-900 ${
             show && 'fade-trans'
-          } bg-blue w-3/4 p-5`}
+          } bg-blue-gradient-1 w-3/4 p-5`}
         >
           <div className="flex items-center justify-between">
             <h2 className="font mb-3 text-3xl">Get In Touch</h2>
@@ -563,7 +564,7 @@ const Home = () => {
 
             {errors?.message && <p>Message body cannot be empty.</p>}
             <input
-              className="scale-btn send-btn my-4 w-1/6 cursor-pointer rounded-md p-1 sm:w-2/5"
+              className="scale-btn send-btn my-4 w-2/5 cursor-pointer rounded-md p-1 lg:w-1/6"
               type="submit"
               value={buttonText}
             />
@@ -584,6 +585,7 @@ const Home = () => {
           }`}
         ></div>
       </section>
+      <Footer />
     </div>
   )
 }

@@ -7,12 +7,11 @@ const NavBar = () => {
   return (
     <nav
       id="nav-bar"
-      className="nav-bar bg-royal bpx-3 flex w-full items-center justify-around xl:hidden"
+      className="nav-bar bg-royal flex w-full items-center justify-around px-3 xl:hidden"
     >
       <Head>
         <link rel="preconnect" href="https://use.typekit.net/zug7ovq.css" />
       </Head>
-      <script type="text/javascript"></script>
       <a href="#home">
         <Image
           width={60}
