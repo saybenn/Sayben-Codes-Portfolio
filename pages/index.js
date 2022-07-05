@@ -157,9 +157,9 @@ const Home = () => {
           </article>
           <div
             id="about"
-            className="bg-blue-gradient-2 flex flex-col items-center justify-center px-20 pt-20 pb-40 lg:w-6/12"
+            className="bg-blue-gradient-2 flex flex-col items-center justify-center pt-20 pb-40 lg:w-6/12 lg:px-20"
           >
-            <article className="mx-auto flex w-11/12 flex-col justify-center lg:w-3/4">
+            <article className="mx-auto flex flex-col justify-center lg:w-3/4">
               <p className="font-thick text-right text-2xl">Sabin Chambers</p>
               <div className="about-me max-w-lg">
                 <div className="about-run overflow-hidden p-2">
@@ -173,7 +173,7 @@ const Home = () => {
                     clients such as photography and writing.
                   </p>
                 </div>
-                <div className="about-run-clone overflow-hidden p-2">
+                <div className="about-run-clone overflow-scroll p-2 scrollbar-hide">
                   <h3 className="font mb-3 text-3xl">About Me</h3>
                   <p className="font">
                     My name is Sabin Chambers, though some know me as EJ. I'm a
