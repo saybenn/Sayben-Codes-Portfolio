@@ -127,8 +127,13 @@ const Home = () => {
         <title>Sayben Codes</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://use.typekit.net/zug7ovq.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta
           name="description"
+          content="An affordable freelance web developer based in Jacksonville FL; who's happy to help you and your business rock the net."
+        />
+        <meta
+          name="keywords"
           content="coding, web development, web developer, jacksonville, FL, duval county, web design, SEO, free lancer, website builder, coder, programmer, portfolio"
         />
       </Head>
