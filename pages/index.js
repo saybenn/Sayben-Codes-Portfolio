@@ -5,14 +5,14 @@ import { RiBrushFill } from 'react-icons/ri'
 import { HiPuzzle } from 'react-icons/hi'
 import { FaHammer } from 'react-icons/fa'
 import { GiArchiveResearch } from 'react-icons/gi'
-import { BiCode } from 'react-icons/bi'
-import { AiFillLayout, AiOutlineFileSearch } from 'react-icons/ai'
-import { BsFillCameraFill, BsFillKeyboardFill } from 'react-icons/bs'
-
+import { AiFillGithub } from 'react-icons/ai'
+import { BiLinkExternal } from 'react-icons/bi'
+import { majorProjects, minorProjects } from '../projects'
 import { IconContext } from 'react-icons'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Home = () => {
   function FadeInSection(props) {
@@ -127,7 +127,7 @@ const Home = () => {
         <title>Sayben Codes</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://use.typekit.net/zug7ovq.css" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta
           name="description"
           content="An affordable freelance web developer based in Jacksonville FL; who's happy to help you and your business rock the net."
@@ -140,7 +140,7 @@ const Home = () => {
       <Sidebar />
       <NavBar />
       <section id="home" className="landing  ">
-        <div className="mx-auto  w-full lg:flex xl:pl-20">
+        <div className="mx-auto w-full lg:flex xl:pl-20">
           {' '}
           <article className="bg-dark h- xl:mar-left flex flex-col items-start justify-center px-20 pt-20 pb-40 lg:w-6/12">
             <Image
@@ -162,11 +162,11 @@ const Home = () => {
           </article>
           <div
             id="about"
-            className="bg-blue-gradient-2 flex flex-col items-center justify-center pt-20 pb-40 lg:w-6/12 lg:px-20"
+            className="bg-blue-gradient-2 flex flex-col items-center justify-center pt-20 pb-40 lg:w-6/12 lg:px-10"
           >
-            <article className="mx-auto flex flex-col justify-center lg:w-3/4">
+            <article className="mx-auto flex w-3/4 flex-col justify-center sm:w-1/2 lg:w-3/4">
               <p className="font-thick text-right text-2xl">Sabin Chambers</p>
-              <div className="about-me max-w-lg">
+              <div className="about-me">
                 <div className="about-run overflow-hidden p-2">
                   <h3 className="font mb-3 text-3xl">About Me</h3>
                   <p className="font">
@@ -194,7 +194,7 @@ const Home = () => {
                   <Image
                     layout="fill"
                     alt="saybencodes headshot"
-                    src="images/IMG_8968.jpg"
+                    src="images/headshot.png"
                   />
                 </div>
               </div>
@@ -213,27 +213,97 @@ const Home = () => {
         <FadeInSection>
           <div className="lg:custom-container mx-auto w-full">
             <div className="project-top mx-auto w-3/4">
-              <p className="mb-8 text-3xl font-thin text-white">Projects</p>
+              <p className="mb-8 text-3xl font-thin text-white">
+                Featured Projects
+              </p>
               <p className="text-6xl font-thin text-white">Some of My Work</p>
+              <div className="mt-1 mb-12 h-0.5 bg-white"></div>
+            </div>
+            <div className="major-projects-container mx-auto w-3/4">
+              {majorProjects.map((major) => (
+                <div
+                  className={`project relative mx-auto mb-48 flex h-96 max-h-96 w-full items-center justify-between ${
+                    major.id == 2 && 'flex-row-reverse'
+                  }`}
+                >
+                  <Image
+                    layout="intrinsic"
+                    height={384}
+                    width={650}
+                    src={major.image}
+                    className={
+                      major.id !== 2
+                        ? 'project-left bg-royal absolute left-0 top-0 h-full rounded-sm hover:z-10 md:w-3/4'
+                        : 'project-left bg-royal absolute right-0 top-0 h-full rounded-sm hover:z-10 md:w-3/4'
+                    }
+                  />
+                  <div
+                    className={
+                      major.id !== 2
+                        ? 'project-right shadow-fade bg-royal-2 absolute top-0 right-0 mx-auto flex h-full flex-col justify-center overflow-scroll rounded-sm p-4 text-right text-white scrollbar-hide md:top-12 md:h-3/4 md:w-7/12'
+                        : 'project-right shadow-fade bg-royal-2 absolute top-0 left-0 mx-auto flex h-full flex-col justify-center overflow-scroll rounded-sm p-4 text-left text-white scrollbar-hide md:top-12 md:h-3/4 md:w-7/12'
+                    }
+                  >
+                    <p className="font text-3xl">{major.title}</p>
+                    <p className="text-md font-thin">{major.role}</p>
+                    <p className="my-2">{major.description}</p>
+                    <p className="font mb-2 text-sm">
+                      {major.stack.join(', ')}
+                    </p>
+                    <div
+                      className={`flex gap-x-2 ${
+                        major.id % 2 !== 0 && 'flex-row-reverse'
+                      }`}
+                    >
+                      <a target="_blank" href={major.link}>
+                        <BiLinkExternal
+                          className="cursor-pointer text-gray-200 hover:text-white"
+                          size={'1.6em'}
+                        />
+                      </a>
+                      <a target="_blank" href={major.repo}>
+                        <AiFillGithub
+                          className="cursor-pointer text-gray-200 hover:text-white"
+                          size={'1.6em'}
+                        />
+                      </a>
+                    </div>
+                  </div>{' '}
+                </div>
+              ))}
+            </div>
+
+            <div className="project-top mx-auto w-3/4">
+              <p className="mb-8 text-3xl font-thin text-white">
+                Minor Projects
+              </p>
+              <p className="text-6xl font-thin text-white">
+                A Few of My More Simple Creations
+              </p>
               <div className="my-1 h-0.5 bg-white"></div>
             </div>
-            <div className="project-bottom relative my-12 mx-auto h-96 max-h-96 w-3/4">
-              <img
-                src="/images/Screenshot (93).png"
-                className="project-left bg-royal absolute left-0 top-0 h-full rounded-sm md:w-10/12 "
-              ></img>
-              <div className="project-right shadow-fade bg-royal-2 absolute top-0 right-0 mx-auto flex h-full flex-col justify-center overflow-hidden rounded-sm p-3 text-right text-white md:top-12 md:h-3/4 md:w-1/2">
-                <p className="font text-xl">Project Title</p>
-                <p className="text-md font-thin">Designer, Developer</p>
-                <p className="my-2">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum,
-                  illum aut quas, nostrum unde pariatur nisi provident sequi eos
-                  non animi quaerat necessitatibus, dolorem vitae. Lorem ipsum
-                  dolor sit amet consectetur adipisicing elit. Ipsa, praesentium
-                  iste beatae voluptas at fugit.
-                </p>
-                <p className="font text-sm">React React React React</p>
-              </div>
+            <div className="mx-auto mb-48 mt-12 flex w-3/4 flex-col items-center justify-center gap-x-5 sm:gap-y-0 lg:flex-row">
+              {minorProjects.map((minor) => (
+                <div className="bg-royal-2 mb-12 w-1/3 flex-col justify-evenly overflow-hidden p-4 text-left font-thin text-white sm:w-full lg:h-80">
+                  <p className="font text-3xl">{minor.title}</p>
+                  <p className="my-2">{minor.description}</p>
+                  <p className="font mb-2 text-sm">{minor.stack.join(', ')}</p>
+                  <div className="flex gap-x-2">
+                    <a target="_blank" href={minor.link}>
+                      <BiLinkExternal
+                        className=" cursor-pointer text-gray-200 hover:text-white"
+                        size={'1.3em'}
+                      />
+                    </a>
+                    <a target="_blank" href={minor.repo}>
+                      <AiFillGithub
+                        className="cursor-pointer text-gray-200 hover:text-white"
+                        size={'1.3em'}
+                      />
+                    </a>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </FadeInSection>
@@ -365,7 +435,7 @@ const Home = () => {
       </section>
       <section id="services" className="services w-full ">
         <div className="lg:flex">
-          <article className="lg:mar-left bg-dark  flex-1 py-40 text-white lg:w-7/12 lg:px-20">
+          <article className="lg:mar-left bg-dark  flex-1 py-40 text-white lg:px-20">
             {' '}
             <FadeInSection>
               <div className="mx-auto w-3/4">
@@ -385,10 +455,16 @@ const Home = () => {
                   that I have fostered proficiency in through study and also as
                   hobbies for the sake of expression.
                 </p>
+                <ul className="mt-16 flex w-full flex-col items-center justify-between text-xl font-thin no-underline md:flex-row md:underline">
+                  <li>Web Design</li>
+                  <li>Web Development</li>
+                  <li>Content Photography</li>
+                  <li>Content Writing</li>
+                </ul>
               </div>
             </FadeInSection>
           </article>
-          <div className="bg-blue-gradient-3 flex flex-col items-center justify-center py-40 px-2 text-black lg:w-5/12 lg:px-10">
+          {/* <div className="bg-blue-gradient-3 flex flex-col items-center justify-center py-40 px-2 text-black lg:w-5/12 lg:px-10">
             <div className="w-10/12">
               <div className="shadow-light relative block w-full rounded-md p-4 ">
                 <IconContext.Provider
@@ -456,7 +532,7 @@ const Home = () => {
                 <p className="font text-center text-3xl">Content Creation</p>
               </div>
             </div>
-          </div>{' '}
+          </div>{' '} */}
         </div>
       </section>
       <section
