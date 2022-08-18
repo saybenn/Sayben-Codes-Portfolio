@@ -240,8 +240,8 @@ const Home = () => {
                   <div
                     className={
                       major.id !== 2
-                        ? 'project-right shadow-fade bg-royal-2 absolute top-0 right-0 mx-auto flex h-full flex-col justify-center overflow-scroll rounded-sm p-4 text-right text-white scrollbar-hide md:top-12 md:h-3/4 md:w-7/12'
-                        : 'project-right shadow-fade bg-royal-2 absolute top-0 left-0 mx-auto flex h-full flex-col justify-center overflow-scroll rounded-sm p-4 text-left text-white scrollbar-hide md:top-12 md:h-3/4 md:w-7/12'
+                        ? 'project-right shadow-fade bg-royal-2 absolute top-0 right-0 mx-auto flex h-full flex-col justify-center overflow-scroll rounded-sm p-4 text-right text-white scrollbar-hide md:w-7/12 lg:top-12 lg:h-3/4'
+                        : 'project-right shadow-fade bg-royal-2 absolute top-0 left-0 mx-auto flex h-full flex-col justify-center overflow-scroll rounded-sm p-4 text-left text-white scrollbar-hide md:w-7/12 lg:top-12 lg:h-3/4'
                     }
                   >
                     <p className="font text-3xl">{major.title}</p>
@@ -282,9 +282,9 @@ const Home = () => {
               </p>
               <div className="my-1 h-0.5 bg-white"></div>
             </div>
-            <div className="mx-auto mb-48 mt-12 flex w-3/4 flex-col items-center justify-center gap-x-5 sm:gap-y-0 lg:flex-row">
+            <div className="mx-auto mb-24 mt-12 flex w-3/4 flex-col items-center justify-center gap-x-5 sm:gap-y-0 lg:flex-row">
               {minorProjects.map((minor) => (
-                <div className="bg-royal-2 mb-12 w-1/3 flex-col justify-evenly overflow-hidden p-4 text-left font-thin text-white sm:w-full lg:h-80">
+                <div className="bg-royal-2 mb-12 flex-col justify-evenly overflow-hidden p-4 text-left font-thin text-white sm:w-full lg:h-80 lg:w-1/3">
                   <p className="font text-3xl">{minor.title}</p>
                   <p className="my-2">{minor.description}</p>
                   <p className="font mb-2 text-sm">{minor.stack.join(', ')}</p>
