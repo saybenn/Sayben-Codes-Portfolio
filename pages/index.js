@@ -222,7 +222,7 @@ const Home = () => {
             <div className="major-projects-container mx-auto w-3/4">
               {majorProjects.map((major) => (
                 <div
-                  className={`project relative mx-auto mb-48 flex h-96 max-h-96 w-full items-center justify-between ${
+                  className={`project relative mx-auto mb-48 flex h-96 w-full items-center justify-between ${
                     major.id == 2 && 'flex-row-reverse'
                   }`}
                 >
