@@ -55,7 +55,7 @@ const Sidebar = () => {
               size={'2em'}
             />
           </a>
-          <a target="_blank" href="/files/Web Dev Resume 2022.pdf">
+          <a target="_blank" href="/files/2022 Resume.pdf">
             <AiOutlineFilePdf
               className="icon gray-text cursor-pointer"
               size={'2em'}

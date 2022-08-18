@@ -26,7 +26,7 @@ const NavBar = () => {
               size={'1.8em'}
             />
           </a>
-          <a target="_blank" href="/files/Web Dev Resume 2022.pdf">
+          <a target="_blank" href="/files/2022 Resume.pdf">
             <AiOutlineFilePdf
               className="icon-footer gray-text cursor-pointer"
               size={'1.8em'}
