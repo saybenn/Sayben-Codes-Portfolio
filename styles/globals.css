@@ -111,16 +111,16 @@ font-display:auto;font-style:normal;font-weight:800;font-stretch:normal;
 .header-text {
     font-family: Quasimoda;
     color: transparent;
-    -webkit-text-stroke-width: 2.5px;
+    -webkit-text-stroke-width: 1.8px;
     -webkit-text-stroke-color:  #077ca3;
 }
 .header-major {
-    font-size: 10rem;
+    font-size: 6.5rem;
     font-weight: 650;
 }
 
 .header-minor {
-    font-size: 8rem;
+    font-size: 4.5rem;
     font-weight: 550;
 }
 
