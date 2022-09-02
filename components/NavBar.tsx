@@ -16,7 +16,7 @@ const NavBar = () => {
         <Image
           width={60}
           height={60}
-          src="/images/sayben codes logo.svg"
+          src="/images/logo.png"
           alt="sayben codes logo"
         />
       </a>

@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useState, useRef, useEffect } from 'react'
 import Sidebar from '../components/Sidebar'
+import Project from '../components/Project'
 import { RiBrushFill } from 'react-icons/ri'
 import { HiPuzzle } from 'react-icons/hi'
 import { FaHammer } from 'react-icons/fa'
@@ -143,13 +144,22 @@ const Home = () => {
         <div className="mx-auto w-full lg:flex xl:pl-20">
           {' '}
           <article className="bg-dark h- xl:mar-left flex flex-col items-start justify-center px-20 pt-20 pb-40 lg:w-6/12">
-            <Image
+            {/* <Image
+              priority={true}
               className="left-0"
               height={350}
               width={350}
-              src="/images/Component 2 – 2.svg"
+              src="/images/saybencodes.png"
               alt="saybencodes logo"
-            />
+            /> */}
+            <p className="header-text">
+              <span className="header-major">S</span>
+              <span className="header-minor">ayben</span>
+            </p>
+            <p className="header-text">
+              <span className="header-major">C</span>
+              <span className="header-minor">odes</span>
+            </p>
             <p className="mb-20 text-3xl font-thin text-white">
               My passion is bringing business ideas to life. Is yours next?
             </p>
@@ -164,7 +174,7 @@ const Home = () => {
             id="about"
             className="bg-blue-gradient-2 flex flex-col items-center justify-center pt-20 pb-40 lg:w-6/12 lg:px-10"
           >
-            <article className="mx-auto flex w-3/4 flex-col justify-center sm:w-1/2 lg:w-3/4">
+            <article className="mx-auto flex w-3/4 flex-col justify-center">
               <p className="font-thick text-right text-2xl">Sabin Chambers</p>
               <div className="about-me">
                 <div className="about-run overflow-hidden p-2">
@@ -192,7 +202,10 @@ const Home = () => {
                 <div className="about-overlay"></div>
                 <div className="about-pic">
                   <Image
+                    priority={true}
                     layout="fill"
+                    width="90"
+                    height="90"
                     alt="saybencodes headshot"
                     src="images/headshot.png"
                   />
@@ -212,68 +225,20 @@ const Home = () => {
       >
         <FadeInSection>
           <div className="lg:custom-container mx-auto w-full">
-            <div className="project-top mx-auto w-3/4">
+            <div className="project-header-major mx-auto w-3/4">
               <p className="mb-8 text-3xl font-thin text-white">
                 Featured Projects
               </p>
               <p className="text-6xl font-thin text-white">Some of My Work</p>
               <div className="mt-1 mb-12 h-0.5 bg-white"></div>
             </div>
-            <div className="major-projects-container mx-auto w-3/4">
+            <div className="major-projects-container mx-auto  w-3/4">
               {majorProjects.map((major) => (
-                <div
-                  className={`project relative mx-auto mb-48 flex h-96 w-full items-center justify-between ${
-                    major.id == 2 && 'flex-row-reverse'
-                  }`}
-                >
-                  <Image
-                    layout="intrinsic"
-                    height={384}
-                    width={650}
-                    src={major.image}
-                    className={
-                      major.id !== 2
-                        ? 'project-left bg-royal absolute left-0 top-0 h-full rounded-sm hover:z-10 md:w-3/4'
-                        : 'project-left bg-royal absolute right-0 top-0 h-full rounded-sm hover:z-10 md:w-3/4'
-                    }
-                  />
-                  <div
-                    className={
-                      major.id !== 2
-                        ? 'project-right shadow-fade bg-royal-2 absolute top-0 right-0 mx-auto flex h-full flex-col justify-center overflow-scroll rounded-sm p-4 text-right text-white scrollbar-hide md:w-7/12 lg:top-12 lg:h-3/4'
-                        : 'project-right shadow-fade bg-royal-2 absolute top-0 left-0 mx-auto flex h-full flex-col justify-center overflow-scroll rounded-sm p-4 text-left text-white scrollbar-hide md:w-7/12 lg:top-12 lg:h-3/4'
-                    }
-                  >
-                    <p className="font text-3xl">{major.title}</p>
-                    <p className="text-md font-thin">{major.role}</p>
-                    <p className="my-2">{major.description}</p>
-                    <p className="font mb-2 text-sm">
-                      {major.stack.join(', ')}
-                    </p>
-                    <div
-                      className={`flex gap-x-2 ${
-                        major.id % 2 !== 0 && 'flex-row-reverse'
-                      }`}
-                    >
-                      <a target="_blank" href={major.link}>
-                        <BiLinkExternal
-                          className="cursor-pointer text-gray-200 hover:text-white"
-                          size={'1.6em'}
-                        />
-                      </a>
-                      <a target="_blank" href={major.repo}>
-                        <AiFillGithub
-                          className="cursor-pointer text-gray-200 hover:text-white"
-                          size={'1.6em'}
-                        />
-                      </a>
-                    </div>
-                  </div>{' '}
-                </div>
+                <Project major={major} />
               ))}
             </div>
 
-            <div className="project-top mx-auto w-3/4">
+            <div className="project-header-minor mx-auto w-3/4">
               <p className="mb-8 text-3xl font-thin text-white">
                 Minor Projects
               </p>

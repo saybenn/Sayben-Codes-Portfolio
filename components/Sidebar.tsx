@@ -6,7 +6,6 @@ import {
   AiOutlineLinkedin,
   AiOutlineFilePdf,
 } from 'react-icons/ai'
-import { GrDocumentPdf } from 'react-icons/gr'
 
 const Sidebar = () => {
   return (
@@ -18,7 +17,7 @@ const Sidebar = () => {
         <Link href="#home">
           <img
             className="mx-auto mb-3 h-32"
-            src="/images/sayben codes logo.svg"
+            src="/images/logo.png"
             alt="sayben codes logo"
           />
         </Link>

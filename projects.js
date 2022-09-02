@@ -40,7 +40,7 @@ export const majorProjects = [
   {
     title: 'Bubbles & Trashbags',
     description:
-      'The beauty of Bubbles & Trashbags is within its design. This was a freelance porject for a small-business owner, so I was inspired to create something that was essentially a side-scrolling business card. Extremely clean, simple, and to the point. Each slide delivers the information it needs and it closes with a contact form and Google Map.',
+      'The beauty of Bubbles & Trashbags is within its design. This was a freelance project for a small-business owner, so I was inspired to create something that was essentially a side-scrolling business card. Extremely clean, simple, and to the point. Each slide delivers the information it needs and it closes with a contact form and Google Map.',
     stack: ['HTML', 'JavaScript', 'GoogleAPI', 'Sass'],
     role: 'Developer, Designer',
     inDepth:
