@@ -131,7 +131,7 @@ const Home = () => {
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta
           name="description"
-          content="An affordable freelance web developer based in Jacksonville FL; who's happy to help you and your business rock the net."
+          content="A freelance web developer based in Jacksonville FL who's happy to help you and your business rock the net."
         />
         <meta
           name="keywords"
@@ -144,14 +144,6 @@ const Home = () => {
         <div className="mx-auto w-full lg:flex xl:pl-20">
           {' '}
           <article className="bg-dark h- xl:mar-left flex flex-col items-start justify-center px-20 pt-20 pb-40 lg:w-6/12">
-            {/* <Image
-              priority={true}
-              className="left-0"
-              height={350}
-              width={350}
-              src="/images/saybencodes.png"
-              alt="saybencodes logo"
-            /> */}
             <p className="header-text">
               <span className="header-major">S</span>
               <span className="header-minor">ayben</span>
@@ -161,7 +153,7 @@ const Home = () => {
               <span className="header-minor">odes</span>
             </p>
             <p className="mb-20 text-3xl font-thin text-white">
-              My passion is bringing business ideas to life. Is yours next?
+              My passion is bringing ideas to life on the web. Is yours next?
             </p>
             <a
               href="#contact"
@@ -181,22 +173,26 @@ const Home = () => {
                   <h3 className="font mb-3 text-3xl">About Me</h3>
                   <p className="font">
                     My name is Sabin Chambers, though some know me as EJ. I'm a
-                    self-taught web developer from Virginia Beach, VA. I
-                    specialize in building eCommerce platforms and polished
-                    sites for small local businesses and young professionals. I
-                    also have a few other talents that help me offer value to my
-                    clients such as photography and writing.
+                    self-taught web developer from Virginia Beach, VA. I relish
+                    in building polished and efficient websites for small local
+                    businesses and young professionals alike. Offering my
+                    services at a reasonable price to those in my community, to
+                    see it built up, flourishing, and create more opportunities
+                    within it for others to benefit from is my vision. I want to
+                    see people doing better, more so now.
                   </p>
                 </div>
                 <div className="about-run-clone overflow-scroll p-2 scrollbar-hide">
                   <h3 className="font mb-3 text-3xl">About Me</h3>
                   <p className="font">
                     My name is Sabin Chambers, though some know me as EJ. I'm a
-                    self-taught web developer from Virginia Beach, VA. I
-                    specialize in building eCommerce platforms and polished
-                    sites for small local businesses and young professionals. I
-                    also have a few other talents that help me offer value to my
-                    clients such as photography and writing.
+                    self-taught web developer from Virginia Beach, VA. I relish
+                    in building polished and efficient websites for small local
+                    businesses and young professionals alike. Offering my
+                    services at a reasonable price to those in my community, to
+                    see it built up, flourishing, and create more opportunities
+                    within it for others to benefit from is my vision. I want to
+                    see people doing better, more so now.
                   </p>
                 </div>
                 <div className="about-overlay"></div>
@@ -234,7 +230,7 @@ const Home = () => {
             </div>
             <div className="major-projects-container mx-auto  w-3/4">
               {majorProjects.map((major) => (
-                <Project major={major} />
+                <Project key={major.id} major={major} />
               ))}
             </div>
 

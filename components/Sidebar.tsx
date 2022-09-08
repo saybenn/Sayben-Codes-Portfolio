@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import Link from 'next/link'
 import {
   AiFillGithub,
@@ -13,9 +14,12 @@ const Sidebar = () => {
       <Head>
         <link rel="preconnect" href="https://use.typekit.net/zug7ovq.css" />
       </Head>
-      <div className="w-full">
+      <div className="mx-auto flex h-full justify-center">
         <Link href="#home">
-          <img
+          <Image
+            layout="intrinsic"
+            width={83}
+            height={128}
             className="mx-auto mb-3 h-32"
             src="/images/logo.png"
             alt="sayben codes logo"
