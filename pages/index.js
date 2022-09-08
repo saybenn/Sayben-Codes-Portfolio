@@ -135,7 +135,7 @@ const Home = () => {
         />
         <meta
           name="keywords"
-          content="coding, web development, web developer, jacksonville, FL, duval county, web design, SEO, free lancer, website builder, coder, programmer, portfolio"
+          content="coding, web development, web developer, jacksonville, FL, duval county, web design, SEO, freelancer, website builder, coder, programmer, portfolio"
         />
       </Head>
       <Sidebar />
@@ -153,7 +153,8 @@ const Home = () => {
               <span className="header-minor">odes</span>
             </p>
             <p className="mb-20 text-3xl font-thin text-white">
-              My passion is bringing ideas to life on the web. Is yours next?
+              My passion is bringing peoples' ideas to life on the web. Is yours
+              next?
             </p>
             <a
               href="#contact"
@@ -167,32 +168,38 @@ const Home = () => {
             className="bg-blue-gradient-2 flex flex-col items-center justify-center pt-20 pb-40 lg:w-6/12 lg:px-10"
           >
             <article className="mx-auto flex w-3/4 flex-col justify-center">
-              <p className="font-thick text-right text-2xl">Sabin Chambers</p>
+              <h1 className="font-thick text-right text-2xl">Sabin Chambers</h1>
               <div className="about-me">
                 <div className="about-run overflow-hidden p-2">
                   <h3 className="font mb-3 text-3xl">About Me</h3>
                   <p className="font">
-                    My name is Sabin Chambers, though some know me as EJ. I'm a
-                    self-taught web developer from Virginia Beach, VA. I relish
-                    in building polished and efficient websites for small local
-                    businesses and young professionals alike. Offering my
-                    services at a reasonable price to those in my community, to
-                    see it built up, flourishing, and create more opportunities
-                    within it for others to benefit from is my vision. I want to
-                    see people doing better, more so now.
+                    My name is Sabin Chambers, though some know me as EJ. I'm an
+                    online educated web developer from Virginia Beach, VA
+                    currently living in Jacksonville Florida. I relish in
+                    building polished and efficient websites for local
+                    businesses and young professionals and entrepreneurs alike.
+                    <br></br>
+                    <br></br>Offering my services at a reasonable price to those
+                    in my community, to see it built up, flourishing, and create
+                    more opportunities within it for others to benefit from is
+                    my vision. I want to see people doing better, more so now,
+                    than ever.
                   </p>
                 </div>
                 <div className="about-run-clone overflow-scroll p-2 scrollbar-hide">
                   <h3 className="font mb-3 text-3xl">About Me</h3>
                   <p className="font">
-                    My name is Sabin Chambers, though some know me as EJ. I'm a
-                    self-taught web developer from Virginia Beach, VA. I relish
-                    in building polished and efficient websites for small local
-                    businesses and young professionals alike. Offering my
-                    services at a reasonable price to those in my community, to
-                    see it built up, flourishing, and create more opportunities
-                    within it for others to benefit from is my vision. I want to
-                    see people doing better, more so now.
+                    My name is Sabin Chambers, though some know me as EJ. I'm an
+                    online educated web developer from Virginia Beach, VA
+                    currently living in Jacksonville Florida. I relish in
+                    building polished and efficient websites for local
+                    businesses and young professionals and entrepreneurs alike.
+                    <br></br>
+                    <br></br> Offering my services at a reasonable price to
+                    those in my community, to see it built up, flourishing, and
+                    create more opportunities within it for others to benefit
+                    from is my vision. I want to see people doing better, more
+                    so now, than ever.
                   </p>
                 </div>
                 <div className="about-overlay"></div>
@@ -208,9 +215,9 @@ const Home = () => {
                 </div>
               </div>
 
-              <p className="z-100 font">
+              <h1 className="z-100 font">
                 Web Developer Based In Jacksonville FL
-              </p>
+              </h1>
             </article>
           </div>
         </div>
