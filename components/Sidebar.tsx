@@ -21,7 +21,7 @@ const Sidebar = () => {
             width={83}
             height={128}
             className="mx-auto mb-3 h-32"
-            src="/images/logo.avif"
+            src="/images/logo.png"
             alt="sayben codes logo"
           />
         </Link>
