@@ -21,7 +21,7 @@ const Sidebar = () => {
             width={83}
             height={128}
             className="mx-auto mb-3 h-32"
-            src="/images/logo.png"
+            src="/images/logo.avif"
             alt="sayben codes logo"
           />
         </Link>
@@ -52,13 +52,21 @@ const Sidebar = () => {
       <div className="menu-bot flex h-full w-full flex-1 flex-col items-center justify-evenly px-2">
         <div className="flex w-full justify-around">
           {' '}
-          <a target="_blank" href="https://github.com/saybenn">
+          <a
+            aria-label="SaybenCodes - GitHub"
+            target="_blank"
+            href="https://github.com/saybenn"
+          >
             <AiFillGithub
               className="icon gray-text cursor-pointer"
               size={'2em'}
             />
           </a>
-          <a target="_blank" href="/files/2022 Resume.pdf">
+          <a
+            aria-label="SaybenCodes - Resume"
+            target="_blank"
+            href="/files/2022 Resume.pdf"
+          >
             <AiOutlineFilePdf
               className="icon gray-text cursor-pointer"
               size={'2em'}
@@ -66,13 +74,18 @@ const Sidebar = () => {
           </a>
         </div>
         <div className="flex w-full justify-around">
-          <a target="_blank" href="https://www.instagram.com/saybenshoots/">
+          <a
+            aria-label="SaybenShoots - Photography Instagram"
+            target="_blank"
+            href="https://www.instagram.com/saybenshoots/"
+          >
             <AiOutlineCamera
               className="icon gray-text cursor-pointer"
               size={'2.1em'}
             />
           </a>
           <a
+            aria-label="Sayben Codes - LinkedIn"
             target="_blank"
             href="https://www.linkedin.com/in/sabin-chambers-31b50a232/"
           >

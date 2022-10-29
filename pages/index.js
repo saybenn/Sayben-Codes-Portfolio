@@ -210,7 +210,7 @@ const Home = () => {
                     width="90"
                     height="90"
                     alt="saybencodes headshot"
-                    src="images/headshot.png"
+                    src="images/headshot.avif"
                   />
                 </div>
               </div>

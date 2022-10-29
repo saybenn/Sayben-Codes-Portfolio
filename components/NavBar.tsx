@@ -15,8 +15,8 @@ const NavBar = () => {
       <a href="#home">
         <Image
           width={60}
-          height={60}
-          src="/images/logo.png"
+          height={92}
+          src="/images/logo.avif"
           alt="sayben codes logo"
         />
       </a>
